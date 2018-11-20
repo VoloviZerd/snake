@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace snake
 {
-    class Vert_Line
+    class Vert_Line : Figure
     {
-        List<Point> pList;
+        
 
         public Vert_Line(int yUp, int yDown, int x, char sym)
         {
@@ -17,7 +17,7 @@ namespace snake
                 pList = new List<Point>();
                 for (int y = yUp; y <= yDown; y++)
                 {
-                    Point p = new Point(y, x, sym);
+                    Point p = new Point(x, y, sym);
                     pList.Add(p);
                 }
 
@@ -31,12 +31,6 @@ namespace snake
 
         }
 
-        public void Drow()
-        {
-            foreach (Point p in pList)
-            {
-                p.Draw();
-            }
-        }
+        
     }
 }

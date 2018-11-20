@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace snake
 {
-    class Horiz_Line
+    class Horiz_Line : Figure //Горизонтальная линия наследуется от фигуры
     {
-        List<Point> pList;
+
 
         public Horiz_Line(int xLeft, int xRight, int y, char sym)
         {
@@ -36,13 +36,7 @@ namespace snake
             
         }
 
-        public void Drow()
-        {
-            foreach(Point p in pList)
-            {
-                p.Draw();
-            }
-        }
+
 
     }
 }
