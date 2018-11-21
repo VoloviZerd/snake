@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace snake
 {
-    class Horiz_Line : Figure //Горизонтальная линия наследуется от фигуры
+    class Horiz_Line : Figure //Горизонтальная линия наследуется от фигуры (Горизонтальная линия является частным случаем Figure, этот класс содержит все, что содержится в классе Figure)
     {
 
 
