@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace snake
 {
@@ -38,12 +39,24 @@ namespace snake
 
 
             //Отрисовка точек
-            Point p1 = new Point(1,3,'*');
-            Snake snake = new Snake(p, 4, Direction.RIGHT);
+            Point p = new Point(1,3,'*');
+            Snake snake = new Snake( p, 4, Direction.RIGHT);
             snake.Drow();
-            snake.Move();
+          
 
-            Console.ReadLine();
+
+            while(true) //Бесконечный цикл: код в скобках выполняется "вечно"
+            {
+                if(Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    snake.HandleKey(key.Key); //Вызов метода из класса snake
+                }
+                Thread.Sleep(100);
+                snake.Move();
+            }
+
+         
         }
 
        
