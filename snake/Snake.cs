@@ -34,7 +34,7 @@ namespace snake
 
         }
 
-        public Point GetNextPoint()
+        public Point GetNextPoint() ////Метод (функция) определяет, в какой точке окажется змейка в след. момент
         {
             Point head = pList.Last();
             Point nextPoint = new Point(head);
@@ -54,5 +54,19 @@ namespace snake
             else if (key == ConsoleKey.UpArrow)
                 direction = Direction.UP;
         }
+
+        internal bool Eat (Point food)
+        {
+            Point head = GetNextPoint(); //Метод (функция) определяет, в какой точке окажется змейка в след. момент
+            if (head.IsHit(food)) //следовательно, получаем точку соответствующую след положению головы змейки
+            { //IsHit - метод класса Point определяющий равенство координат
+                food.sym = head.sym; //если точка совпадает с точкой головы, то змея есть
+                pList.Add(food);
+                return true;
+            }
+            else
+                return false;
+        }
+
     }
 }

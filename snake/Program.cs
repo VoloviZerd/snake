@@ -42,12 +42,26 @@ namespace snake
             Point p = new Point(1,3,'*');
             Snake snake = new Snake( p, 4, Direction.RIGHT);
             snake.Drow();
-          
 
+            FoodCreator foodCreator = new FoodCreator(120, 30, '?');
+            Point food = foodCreator.CreateFood();
+            food.Draw();
 
             while(true) //Бесконечный цикл: код в скобках выполняется "вечно"
             {
-                if(Console.KeyAvailable)
+                if(snake.Eat(food)) //встретит ли змея еду или нет
+                {
+                    food = foodCreator.CreateFood();
+                    food.Draw();
+                }
+                else
+                {
+                    snake.Move();
+                }
+
+                Thread.Sleep(100);
+
+                if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo key = Console.ReadKey();
                     snake.HandleKey(key.Key); //Вызов метода из класса snake

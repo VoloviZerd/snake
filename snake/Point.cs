@@ -45,6 +45,12 @@ namespace snake
                 y = y + offset;
             }
         }
+
+        public bool IsHit(Point p)
+        {
+            return p.x == this.x && p.y == this.y; //проверка пересечение по координатам текущей точки с той, что передали в кач-ве аргумента
+        }
+
         public void Draw()
         {
             Console.SetCursorPosition(x, y);
