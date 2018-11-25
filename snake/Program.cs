@@ -49,20 +49,21 @@ namespace snake
 
             //Рамка
             Horiz_Line Topline = new Horiz_Line(0, 78, 0, '+');
-            Topline.Drow();
+            Topline.Draw();
             Horiz_Line Bottomline = new Horiz_Line(0, 78, 24, '+');
-            Bottomline.Drow();
+            Bottomline.Draw();
             Vert_Line Leftline = new Vert_Line(0, 24, 0, '+');
-            Leftline.Drow();
+            Leftline.Draw();
             Vert_Line Rightline = new Vert_Line(0, 24, 78, '+');
-            Rightline.Drow();
+            Rightline.Draw();
 
 
-            //Отрисовка точек
-            Point p = new Point(1,3,'*');
-            Snake snake = new Snake( p, 4, Direction.RIGHT);
-            snake.Drow();
+            ////Отрисовка точек
+            //Point p = new Point(1,3,'*');
+            //Snake snake = new Snake( p, 4, Direction.RIGHT);
+            //snake.Draw();
 
+            //Отрисовка еды
             FoodCreator foodCreator = new FoodCreator(120, 30, '?');
             Point food = foodCreator.CreateFood();
             food.Draw();
