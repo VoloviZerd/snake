@@ -11,6 +11,26 @@ namespace snake
     {
         static void Main(string[] args)
         {
+            Vert_Line v1 = new Vert_Line(0, 10, 5, '%');
+            Draw(v1);
+
+            Point p = new Point(4, 5, '*');
+            Figure fSnake = new Snake(p, 4, Direction.RIGHT);
+            Draw(fSnake);
+            Snake snake = (Snake)fSnake; //Явное приведение типа, говоря, что fSnake принадлежит классу Snake и мы можем пользоваться методами класса snake для fSnake
+
+            Horiz_Line h1 = new Horiz_Line(0, 5, 6, '&');
+
+            List<Figure> figures = new List<Figure>();
+            figures.Add(fSnake);
+            figures.Add(v1);
+            figures.Add(h1);
+
+            foreach(var f in figures)
+            {
+                f.Draw();
+            }
+
             //Point p1 = new Point(1,3,'*');
             //p1.Draw();
 
@@ -68,11 +88,18 @@ namespace snake
                 }
                 Thread.Sleep(100);
                 snake.Move();
+
+                
             }
 
          
         }
 
-       
+        static void Draw(Figure figure)
+        {
+            figure.Draw();
+        }
+
+
     }
 }
